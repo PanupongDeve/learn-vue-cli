@@ -25,9 +25,9 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: echo $NETLIFY_SITE_ID
-      - run: echo $NETLIFY_AUTH_TOKEN
+
       - run: yarn install
+      - run: yarn build
 
       - save_cache:
           paths:
@@ -37,4 +37,4 @@ jobs:
       # deploy to netlify!
       - run:
           name: Deploy to Netlify
-          command: netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+          command: yarn deploy
