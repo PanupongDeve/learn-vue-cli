@@ -28,8 +28,10 @@ jobs:
 
       - run: yarn install
       - run:
-          name: 'build vue'
+          name: build vue
           command: yarn build
+      - run:
+          name: cp index.html
           command: cp index.html dist
 
       - save_cache:
