@@ -32,7 +32,7 @@ jobs:
           command: yarn build
       - run:
           name: cp index.html
-          command: cp index.html dist
+          command: ./include-html.sh
 
       - save_cache:
           paths:
