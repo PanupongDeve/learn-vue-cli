@@ -30,14 +30,14 @@ jobs:
       - run:
           name: build vue
           command: yarn build
-      - run:
-          name: cp index.html
-          command: ./include-html.sh
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: delete node module
+          command: rm -rf node_modules
 
       # deploy to netlify!
       - run:
